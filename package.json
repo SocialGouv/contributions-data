@@ -1,7 +1,7 @@
 {
-  "name": "contributions-data",
+  "name": "@socialgouv/contributions-data",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "fetch.js",
   "license": "Apache-2.0",
   "files": [
     "data"
