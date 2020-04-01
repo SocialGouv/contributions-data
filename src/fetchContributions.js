@@ -14,9 +14,11 @@ const comparableIdcc = (num) => parseInt(num);
 const sortByKey = (key) => (a, b) => `${a[key]}`.localeCompare(`${b[key]}`);
 
 /**
+ *
  * Fetch contributions from the contributions api
- * retrieve all the answers, questions, reference
- * resolve some data from @socialgouv/kali-data
+ * retrieve all the answers, questions, references
+ * resolve CCN references by IDCC from @socialgouv/kali-data
+ *
  */
 
 const fetchContributions = async () => {
@@ -24,7 +26,7 @@ const fetchContributions = async () => {
 
   const answers = await fetch(
     `${API_URL}/public_answers?select=*&order=updated_at.desc`
-  ).then((r) => r.json()); //.filter(a => a.is_published);
+  ).then((r) => r.json());
 
   const questions = await fetch(
     `${API_URL}/questions?select=*&order=id`
