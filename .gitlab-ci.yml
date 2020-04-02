@@ -38,12 +38,10 @@ Data fetch:
       if [[ -n "$(git status -s ./data)" ]]; then
         echo "Files changed, checking JSON validity"
         # Check JSON files
-        for filename in ./data/LEGITEXT*\.json; do
-          node -e "assert(require('$filename').children.length > 0)" || {
-            echo "Invalid JSON in $filename : should have children"
-            exit 1
-          }
-        done
+        node -e "assert(require('./data/contributions.json').length > 0)" || {
+          echo "Invalid JSON in $filename : no children"
+          exit 1
+        }
         echo "Commit files"
         # Commit files
         NOW=$(date +"%Y%m%d_%H%M")
