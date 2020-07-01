@@ -71,7 +71,7 @@ function createGetRefUrl(idcc) {
 async function fetchContributions() {
   /** @type {Contributions.QuestionRaw[]} */
   const questions = await fetch(
-    `${API_URL}/questions?select=id,value,index,answers:public_answers(id,markdown:value,references:answers_references(title:value,url,dila_id,dila_cid),agreement(name,idcc,parent_id))&order=index`
+    `${API_URL}/questions?select=id,value,index,answers:public_answers(id,markdown:value,references:answers_references(title:value,url,dila_id,dila_cid,category),agreement(name,idcc,parent_id))&order=index`
   ).then((r) => r.json());
 
   return /**@type {Contributions.Question[]} */ (questions.flatMap(
