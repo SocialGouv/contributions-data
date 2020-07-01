@@ -17,6 +17,7 @@ Quality tests:
       - node_modules/
   script:
     - yarn lint
+    - yarn check:types
     - yarn test
 
 Data fetch:
