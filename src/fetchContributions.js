@@ -44,20 +44,22 @@ function getGenericAnswer(answers) {
 }
 
 /** @type {Contributions.createRefFn} */
-const getRefUrl = (idcc) => (reference) => {
+function createGetRefUrl(idcc) {
   const agreement = kaliData.find(
     (convention) => comparableIdcc(convention.num) === comparableIdcc(idcc)
   );
   if (!agreement) {
+    throw new Error(`agreement ${idcc} not found `);
+  }
+  return function getRefUrl(reference) {
+    if (reference.dila_id) {
+      reference.url = `https://beta.legifrance.gouv.fr/conv_coll/id/${reference.dila_id}/?idConteneur=${agreement.id}`;
+    } else if (agreement.url) {
+      reference.url = agreement.url;
+    }
     return reference;
-  }
-  if (reference.dila_id) {
-    reference.url = `https://beta.legifrance.gouv.fr/conv_coll/id/${reference.dila_id}/?idConteneur=${agreement.id}`;
-  } else if (agreement.url) {
-    reference.url = agreement.url;
-  }
-  return reference;
-};
+  };
+}
 
 /**
  *
@@ -89,7 +91,7 @@ async function fetchContributions() {
               idcc: answer.agreement.idcc,
               markdown: answer.markdown,
               references: answer.references
-                .map(getRefUrl(answer.agreement.idcc))
+                .map(createGetRefUrl(answer.agreement.idcc))
                 .sort(sortBy("title")),
             }))
             .sort(sortBy("idcc")),
