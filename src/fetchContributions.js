@@ -1,13 +1,13 @@
-import kaliData from "@socialgouv/kali-data/data/index.json";
 import fetch from "node-fetch";
 import remark from "remark";
 import strip from "strip-markdown";
 
 const mdStriper = remark().use(strip);
-
+const CDTN_API_URL =
+  process.env.CDTN_API_URL || "https://cdtn-api.fabrique.social.gouv.fr";
 const API_URL =
   process.env.API_URL ||
-  `https://contributions-api.codedutravail.fabrique.social.gouv.fr`;
+  "https://contributions-api.codedutravail.fabrique.social.gouv.fr";
 
 /** @type {Contributions.sortByFn} */
 const sortBy = (key) => (a, b) => `${a[key]}`.localeCompare(`${b[key]}`);
@@ -44,19 +44,34 @@ function getGenericAnswer(answers) {
 }
 
 /** @type {Contributions.createRefFn} */
-function createGetRefUrl(idcc) {
-  const agreement = kaliData.find(
+function createGetRefUrl(agreements, idcc) {
+  const agreement = agreements.find(
     (convention) => comparableIdcc(convention.num) === comparableIdcc(idcc)
   );
   if (!agreement) {
     throw new Error(`agreement ${idcc} not found `);
   }
   return function getRefUrl(reference) {
-    if (reference.dila_id) {
-      reference.url = `https://beta.legifrance.gouv.fr/conv_coll/id/${reference.dila_id}/?idConteneur=${agreement.id}`;
-    } else if (agreement.url) {
-      reference.url = agreement.url;
+    switch (reference.category) {
+      case "agreement": {
+        if (reference.dila_id) {
+          reference.url = `https://beta.legifrance.gouv.fr/conv_coll/id/${reference.dila_id}/?idConteneur=${agreement.id}`;
+        } else if (agreement.url) {
+          reference.url = agreement.url;
+        }
+        return reference;
+      }
+      case "labor_code": {
+        if (reference.dila_id) {
+          reference.url = `https://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=${reference.dila_id}&cidTexte=LEGITEXT000006072050`;
+        } else {
+          reference.url =
+            "https://www.legifrance.gouv.fr/affichCode.do?cidTexte=LEGITEXT000006072050";
+        }
+        return reference;
+      }
     }
+
     return reference;
   };
 }
@@ -69,10 +84,13 @@ function createGetRefUrl(idcc) {
  *
  */
 async function fetchContributions() {
-  /** @type {Contributions.QuestionRaw[]} */
-  const questions = await fetch(
-    `${API_URL}/questions?select=id,value,index,answers:public_answers(id,markdown:value,references:answers_references(title:value,url,dila_id,dila_cid),agreement(name,idcc,parent_id))&order=index`
-  ).then((r) => r.json());
+  /** @type {[Contributions.QuestionRaw[], Contributions.IndexedAgreement[]]} */
+  const [questions, agreements] = await Promise.all([
+    fetch(
+      `${API_URL}/questions?select=id,value,index,answers:public_answers(id,markdown:value,references:answers_references(title:value,url,dila_id,dila_cid,category),agreement(name,idcc,parent_id))&order=index`
+    ).then((r) => r.json()),
+    fetch(`${CDTN_API_URL}/agreements`).then((r) => r.json()),
+  ]);
 
   return /**@type {Contributions.Question[]} */ (questions.flatMap(
     ({ id, index, value: title, answers }) => {
@@ -91,7 +109,7 @@ async function fetchContributions() {
               idcc: answer.agreement.idcc,
               markdown: answer.markdown,
               references: answer.references
-                .map(createGetRefUrl(answer.agreement.idcc))
+                .map(createGetRefUrl(agreements, answer.agreement.idcc))
                 .sort(sortBy("title")),
             }))
             .sort(sortBy("idcc")),

@@ -2,21 +2,21 @@ import { type } from "os";
 
 export as namespace Contributions;
 
-export type QuestionRaw = {
+type QuestionRaw = {
   id: string
   index: number
   value: string
   answers: AnswerRaw[]
 }
 
-export type AnswerRaw = {
+type AnswerRaw = {
   id: string
   markdown: string
   references: Reference[]
   agreement: AgreementRaw
 }
 
-export type Question = {
+type Question = {
   id: string
   index: number
   title: string
@@ -26,11 +26,11 @@ export type Question = {
   }
 }
 
-export type Answer = AnswerRaw & {
+type Answer = AnswerRaw & {
   idcc: string
 }
 
-export type GenericAnswer = {
+type GenericAnswer = {
   id: string
   markdown: string
   description: string
@@ -38,7 +38,7 @@ export type GenericAnswer = {
   references: Reference[]
 }
 
-export type Reference = {
+type Reference = {
   category: string
   title: string
   url: string
@@ -47,11 +47,30 @@ export type Reference = {
   dila_container:string
 }
 
-export type AgreementRaw = {
+type AgreementRaw = {
   idcc: string 
   name: string
   parent_id: string
 }
  
-export function sortByFn  <T, K extends keyof T>(key: K): (a: T, b: T) => number 
-export function createRefFn(idcc:string) : (ref: Reference) => Reference
+function sortByFn  <T, K extends keyof T>(key: K): (a: T, b: T) => number 
+function createRefFn(agreements: IndexedAgreement[], idcc:string) : (ref: Reference) => Reference
+
+// from https://github.com/SocialGouv/kali-data/blob/master/src/index.d.ts
+type IndexedAgreement = {
+  active?: boolean;
+  /** Publication ISO date */
+  date_publi?: string;
+  effectif?: number;
+  etat?: State;
+  /** Agreement ID */
+  id: string;
+  mtime?: number;
+  nature: "IDCC";
+  /** Agreement IDCC */
+  num: number;
+  shortTitle: string;
+  texte_de_base?: string;
+  title: string;
+  url?: string;
+};

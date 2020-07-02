@@ -36,9 +36,8 @@
       "@semantic-release/npm",
       "@semantic-release/github"
     ]
-  },
-  "dependencies": {
-    "@socialgouv/kali-data": "^1.78.0",
+  }, 
+  "dependencies": { 
     "esm": "^3.2.25",
     "node-fetch": "^2.6.0",
     "remark": "^12.0.0",
