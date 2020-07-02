@@ -56,7 +56,6 @@ function createGetRefUrl(agreements, idcc) {
       case "agreement": {
         if (reference.dila_id) {
           reference.url = `https://beta.legifrance.gouv.fr/conv_coll/id/${reference.dila_id}/?idConteneur=${agreement.id}`;
-          `https://www.legifrance.gouv.fr/affichIDCCArticle.do?idArticle=KALIARTI000005857273&cidTexte=KALITEXT000005682357`;
         } else if (agreement.url) {
           reference.url = agreement.url;
         }
