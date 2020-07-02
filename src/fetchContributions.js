@@ -84,7 +84,7 @@ function createGetRefUrl(agreements, idcc) {
  *
  */
 async function fetchContributions() {
-  /** @type {Contributions.QuestionRaw[]} */
+  /** @type {[Contributions.QuestionRaw[], Contributions.IndexedAgreement[]]} */
   const [questions, agreements] = await Promise.all([
     fetch(
       `${API_URL}/questions?select=id,value,index,answers:public_answers(id,markdown:value,references:answers_references(title:value,url,dila_id,dila_cid,category),agreement(name,idcc,parent_id))&order=index`
