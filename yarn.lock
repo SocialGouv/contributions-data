@@ -242,10 +242,10 @@
     eslint-plugin-jest "~23.8.2"
     eslint-plugin-prettier "~3.1.2"
 
-"@socialgouv/kali-data@^1.77.0":
-  version "1.77.0"
-  resolved "https://registry.yarnpkg.com/@socialgouv/kali-data/-/kali-data-1.77.0.tgz#c504a38e972f6bc02f4e29d9f5bf63274ad914da"
-  integrity sha512-rgtCbXMTR2n2Lr3K4QKgW4LnwOM21jqEHn2UDL7E4Yz+g4CTJup/BjT4vcw75JCYMjZFBLUixgKEitUI+xmlig==
+"@socialgouv/kali-data@^1.78.0":
+  version "1.78.0"
+  resolved "https://registry.yarnpkg.com/@socialgouv/kali-data/-/kali-data-1.78.0.tgz#272d70c072f318cd393cfd464424e19c83fc6175"
+  integrity sha512-H+C9VlElvzTmOTSYrLC0O4ustFXTHFXQkxeEF54qB8XisLb2dm0j0UmrtRoPKH9s9tUlDCwX2Py0seZNgvMbtw==
   dependencies:
     unist-util-find "1.0.1"
     unist-util-flat-filter "1.0.0"
