@@ -44,7 +44,7 @@ type Reference = {
   url: string
   dila_id: string
   dila_cid: string
-  dila_container:string
+  dila_container_id:string
 }
 
 type AgreementRaw = {

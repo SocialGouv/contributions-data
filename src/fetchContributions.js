@@ -87,7 +87,7 @@ async function fetchContributions() {
   /** @type {[Contributions.QuestionRaw[], Contributions.IndexedAgreement[]]} */
   const [questions, agreements] = await Promise.all([
     fetch(
-      `${API_URL}/questions?select=id,value,index,answers:public_answers(id,markdown:value,references:answers_references(title:value,url,dila_id,dila_cid,category),agreement(name,idcc,parent_id))&order=index`
+      `${API_URL}/questions?select=id,value,index,answers:public_answers(id,markdown:value,references:answers_references(title:value,url,dila_id,dila_cid,dila_container_id,category),agreement(name,idcc,parent_id))&order=index`
     ).then((r) => r.json()),
     fetch(`${CDTN_API_URL}/agreements`).then((r) => r.json()),
   ]);
