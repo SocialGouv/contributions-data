@@ -36,7 +36,7 @@ Data fetch:
   script:
     - yarn fetch
     - |
-      if [[ -n "$(git status -s ./data)" ]]; then
+      if [[ -n "$(git status -s ./data ./src)" ]]; then
         echo "Files changed, checking JSON validity"
         # Check JSON files
         node -e "assert(require('./data/contributions.json').length > 0)" || {
