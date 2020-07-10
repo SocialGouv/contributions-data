@@ -1,5 +1,3 @@
-import { type } from "os";
-
 export as namespace Contributions;
 
 type QuestionRaw = {
@@ -38,13 +36,21 @@ type GenericAnswer = {
   references: Reference[]
 }
 
-type Reference = {
-  category: string
-  title: string
+type Reference = BaseRef | DilaRef
+
+type DilaRef = {
+  category: "agreement" | "labor_code"
   url: string
-  dila_id: string
-  dila_cid: string
-  dila_container_id:string
+  title: string 
+  dila_id: string 
+  dila_cid: string 
+  dila_container_id: string 
+}
+
+type BaseRef = {
+  category: null
+  title: string
+  url: string | null
 }
 
 type AgreementRaw = {
