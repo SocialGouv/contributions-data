@@ -40,8 +40,7 @@ type Reference = BaseRef | DilaRef
 
 type DilaRef = {
   category: "agreement" | "labor_code"
-  title: string
-  url: string
+  title: string 
   dila_id: string 
   dila_cid: string 
   dila_container_id: string 
