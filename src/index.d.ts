@@ -1,4 +1,17 @@
-export as namespace Contributions;
+
+export function createRefFn(agreements: IndexedAgreement[], idcc: string): (ref: Reference) => Reference
+
+export function sortByFn<T, K extends keyof T>(key: K): (a: T, b: T) => number
+
+export as namespace ContributionsData
+
+type AnswerRaw = {
+  id: string
+  markdown: string
+  references: Reference[]
+  agreement: AgreementRaw
+}
+
 
 type QuestionRaw = {
   id: string
@@ -7,7 +20,7 @@ type QuestionRaw = {
   answers: AnswerRaw[]
 }
 
-type AnswerRaw = {
+type AnswerRaw = {
   id: string
   markdown: string
   references: Reference[]
@@ -24,7 +37,7 @@ type Question = {
   }
 }
 
-type Answer = AnswerRaw & {
+export type Answer = AnswerRaw & {
   idcc: string
 }
 
@@ -41,10 +54,10 @@ type Reference = BaseRef | DilaRef
 type DilaRef = {
   category: "agreement" | "labor_code"
   url: string
-  title: string 
-  dila_id: string 
-  dila_cid: string 
-  dila_container_id: string 
+  title: string
+  dila_id: string
+  dila_cid: string
+  dila_container_id: string
 }
 
 type BaseRef = {
@@ -54,13 +67,11 @@ type BaseRef = {
 }
 
 type AgreementRaw = {
-  idcc: string 
+  idcc: string
   name: string
   parent_id: string
 }
- 
-function sortByFn  <T, K extends keyof T>(key: K): (a: T, b: T) => number 
-function createRefFn(agreements: IndexedAgreement[], idcc:string) : (ref: Reference) => Reference
+
 
 // from https://github.com/SocialGouv/kali-data/blob/master/src/index.d.ts
 type IndexedAgreement = {
@@ -80,3 +91,13 @@ type IndexedAgreement = {
   title: string;
   url?: string;
 };
+
+type State =
+  | "ABROGE"
+  | "DENONCE"
+  | "MODIFIE"
+  | "PERIME"
+  | "REMPLACE"
+  | "VIGUEUR"
+  | "VIGUEUR_ETEN"
+  | "VIGUEUR_NON_ETEN";
