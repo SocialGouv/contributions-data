@@ -5,14 +5,6 @@ export function sortByFn<T, K extends keyof T>(key: K): (a: T, b: T) => number
 
 export as namespace ContributionsData
 
-type AnswerRaw = {
-  id: string
-  markdown: string
-  references: Reference[]
-  agreement: AgreementRaw
-}
-
-
 type QuestionRaw = {
   id: string
   index: number
@@ -37,7 +29,7 @@ type Question = {
   }
 }
 
-export type Answer = AnswerRaw & {
+type Answer = AnswerRaw & {
   idcc: string
 }
 
