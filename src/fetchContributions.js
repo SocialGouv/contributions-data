@@ -9,7 +9,7 @@ const API_URL =
   process.env.API_URL ||
   "https://contributions-api.codedutravail.fabrique.social.gouv.fr";
 
-/** @type {sortByFn} */
+/** @type {ContributionsData.sortByFn} */
 const sortBy = (key) => (a, b) => `${a[key]}`.localeCompare(`${b[key]}`);
 
 /**
@@ -20,7 +20,7 @@ const comparableIdcc = (num) => parseInt(num.toString(), 10);
 
 /**
  *
- * @param {AnswerRaw[]} answers
+ * @param {ContributionsData.AnswerRaw[]} answers
  */
 function getGenericAnswer(answers) {
   const genericAnswer = answers.find((answer) => answer.agreement === null);
@@ -43,7 +43,7 @@ function getGenericAnswer(answers) {
   };
 }
 
-/** @type {createRefFn} */
+/** @type {ContributionsData.createRefFn} */
 function createGetRefUrl(agreements, idcc) {
   const agreement = agreements.find(
     (convention) => comparableIdcc(convention.num) === comparableIdcc(idcc)
@@ -84,7 +84,7 @@ function createGetRefUrl(agreements, idcc) {
  *
  */
 async function fetchContributions() {
-  /** @type {[QuestionRaw[], IndexedAgreement[]]} */
+  /** @type {[ContributionsData.QuestionRaw[], ContributionsData.IndexedAgreement[]]} */
   const [questions, agreements] = await Promise.all([
     fetch(
       `${API_URL}/questions?select=id,value,index,answers:public_answers(id,markdown:value,references:answers_references(title:value,url,dila_id,dila_cid,dila_container_id,category),agreement(name,idcc,parent_id))&order=index`
@@ -92,7 +92,7 @@ async function fetchContributions() {
     fetch(`${CDTN_API_URL}/agreements`).then((r) => r.json()),
   ]);
 
-  return /**@type {Question[]} */ (questions.flatMap(
+  return /**@type {ContributionsData.Question[]} */ (questions.flatMap(
     ({ id, index, value: title, answers }) => {
       const genericAnswer = getGenericAnswer(answers);
       if (!genericAnswer) return [];
