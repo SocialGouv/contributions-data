@@ -29,8 +29,11 @@ type Question = {
   }
 }
 
-type Answer = AnswerRaw & {
+type Answer = {
+  id: string
   idcc: string
+  markdown: string
+  references: Reference[]
 }
 
 type GenericAnswer = {
