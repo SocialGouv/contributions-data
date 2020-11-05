@@ -2,6 +2,14 @@
 
 Data package for CDTN contributions data
 
+## Install
+
+```sh
+yarn add @socialgouv/contributions-data
+# or if you only need the Typescript types
+yarn add -D @socialgouv/contributions-data-types
+```
+
 ## Related
 
 - [Code du travail numérique](https://github.com/SocialGouv/code-du-travail-numerique)
