@@ -1,3 +1,10 @@
+# [3.2.0](https://github.com/SocialGouv/contributions-data/compare/v3.1.0...v3.2.0) (2020-12-16)
+
+
+### Features
+
+* **data:** 20201216_2320 update ([be47cb5](https://github.com/SocialGouv/contributions-data/commit/be47cb53830d7e8789f395c4093cfa283a0436fe))
+
 # [3.1.0](https://github.com/SocialGouv/contributions-data/compare/v3.0.0...v3.1.0) (2020-12-14)
 
 
