@@ -1,3 +1,10 @@
+# [3.6.0](https://github.com/SocialGouv/contributions-data/compare/v3.5.0...v3.6.0) (2021-01-06)
+
+
+### Features
+
+* **data:** 20210106_2320 update ([a39cb1b](https://github.com/SocialGouv/contributions-data/commit/a39cb1b3034934fb2c252a67fcb24c22e2e21bf9))
+
 # [3.5.0](https://github.com/SocialGouv/contributions-data/compare/v3.4.0...v3.5.0) (2021-01-05)
 
 
