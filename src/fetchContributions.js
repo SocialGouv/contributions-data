@@ -55,7 +55,7 @@ function createGetRefUrl(agreements, idcc) {
     switch (reference.category) {
       case "agreement": {
         if (reference.dila_id) {
-          reference.url = `https://beta.legifrance.gouv.fr/conv_coll/id/${reference.dila_id}/?idConteneur=${agreement.id}`;
+          reference.url = `https://legifrance.gouv.fr/conv_coll/id/${reference.dila_id}/?idConteneur=${agreement.id}`;
         } else if (agreement.url) {
           reference.url = agreement.url;
         }
@@ -63,10 +63,10 @@ function createGetRefUrl(agreements, idcc) {
       }
       case "labor_code": {
         if (reference.dila_id) {
-          reference.url = `https://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=${reference.dila_id}&cidTexte=LEGITEXT000006072050`;
+          reference.url = `https://legifrance.gouv.fr/codes/id/${reference.dila_id}`;
         } else {
           reference.url =
-            "https://www.legifrance.gouv.fr/affichCode.do?cidTexte=LEGITEXT000006072050";
+            "https://www.legifrance.gouv.fr/codes/id/LEGITEXT000006072050";
         }
         return reference;
       }
