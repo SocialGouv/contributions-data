@@ -1,3 +1,15 @@
+# [3.18.0](https://github.com/SocialGouv/contributions-data/compare/v3.17.0...v3.18.0) (2021-03-26)
+
+
+### Bug Fixes
+
+* remove legifrance beta url ([6bdda31](https://github.com/SocialGouv/contributions-data/commit/6bdda313300dd3a803804cea590434636d44d650))
+
+
+### Features
+
+* **data:** 20210326_1049 update ([09f185a](https://github.com/SocialGouv/contributions-data/commit/09f185a61c3c7a14efb69191c1f5f2897b454c8e))
+
 # [3.17.0](https://github.com/SocialGouv/contributions-data/compare/v3.16.0...v3.17.0) (2021-03-23)
 
 
