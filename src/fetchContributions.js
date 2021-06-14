@@ -34,12 +34,12 @@ function getGenericAnswer(answers) {
     .trim();
 
   return {
-    id: genericAnswer.id,
-    text: genericTextAnswer,
     description:
       genericTextAnswer.slice(0, genericTextAnswer.indexOf(" ", 150)) + "…",
-    references: genericAnswer.references,
+    id: genericAnswer.id,
     markdown: genericAnswer.markdown,
+    references: genericAnswer.references,
+    text: genericTextAnswer,
   };
 }
 
@@ -92,16 +92,12 @@ async function fetchContributions() {
     fetch(`${CDTN_API_URL}/agreements`).then((r) => r.json()),
   ]);
 
-  return /**@type {ContributionsData.Question[]} */ (questions.flatMap(
-    ({ id, index, value: title, answers }) => {
+  return /**@type {ContributionsData.Question[]} */ (
+    questions.flatMap(({ id, index, value: title, answers }) => {
       const genericAnswer = getGenericAnswer(answers);
       if (!genericAnswer) return [];
       return {
-        id,
-        index,
-        title,
         answers: {
-          generic: genericAnswer,
           conventions: answers
             .filter((answer) => answer.agreement !== null)
             .map((answer) => ({
@@ -113,10 +109,14 @@ async function fetchContributions() {
                 .sort(sortBy("title")),
             }))
             .sort(sortBy("idcc")),
+          generic: genericAnswer,
         },
+        id,
+        index,
+        title,
       };
-    }
-  ));
+    })
+  );
 }
 
 module.exports = fetchContributions;
