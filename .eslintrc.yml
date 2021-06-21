@@ -2,6 +2,10 @@ root: true
 extends:
   - "@socialgouv/eslint-config-recommended"
 
+globals:
+  jest: false
+
 rules:
   prefer-const: error
   no-console: off
+  jest/no-deprecated-functions: off
