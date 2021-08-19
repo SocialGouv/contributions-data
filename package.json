@@ -8,7 +8,7 @@
     "strip-markdown": "^4.2.0"
   },
   "devDependencies": {
-    "@socialgouv/eslint-config-recommended": "^1.84.1",
+    "@socialgouv/eslint-config-recommended": "^1.85.0",
     "@types/node": "^12.20.19",
     "@types/node-fetch": "^2.5.12",
     "eslint": "^7.32.0",
