@@ -1,3 +1,16 @@
+# [3.28.0](https://github.com/SocialGouv/contributions-data/compare/v3.27.0...v3.28.0) (2021-09-24)
+
+
+### Bug Fixes
+
+* **deps:** update dependency node-fetch to v3 ([#67](https://github.com/SocialGouv/contributions-data/issues/67)) ([895b25b](https://github.com/SocialGouv/contributions-data/commit/895b25b7d85e8e7ed26fac75a6038c6c99eae61b))
+* restore node-fetch@2 ([#73](https://github.com/SocialGouv/contributions-data/issues/73)) ([a0fd4a2](https://github.com/SocialGouv/contributions-data/commit/a0fd4a236195eb0e0654804b097f64484b731474))
+
+
+### Features
+
+* **data:** 20210924_1313 update ([bdb1666](https://github.com/SocialGouv/contributions-data/commit/bdb1666099140bfaffc6d54e122676db23fcf58d))
+
 # [3.27.0](https://github.com/SocialGouv/contributions-data/compare/v3.26.0...v3.27.0) (2021-07-13)
 
 
