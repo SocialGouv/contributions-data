@@ -6,7 +6,7 @@
     "esm": "^3.2.25",
     "node-fetch": "^2",
     "remark": "^14.0.2",
-    "strip-markdown": "^4.2.0"
+    "strip-markdown": "^5.0.0"
   },
   "devDependencies": {
     "@socialgouv/eslint-config-recommended": "^1.99.1",
