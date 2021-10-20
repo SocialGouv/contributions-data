@@ -1,6 +1,6 @@
 {
   "name": "@socialgouv/contributions-data",
-  "version": "3.31.0",
+  "version": "3.32.0",
   "dependencies": {
     "esm": "^3.2.25",
     "node-fetch": "^2",
