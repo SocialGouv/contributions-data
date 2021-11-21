@@ -11,7 +11,7 @@
     "@socialgouv/eslint-config-recommended": "^1.96.0",
     "@types/node": "^12.20.37",
     "@types/node-fetch": "^2",
-    "eslint": "^7.32.0",
+    "eslint": "^8.3.0",
     "prettier": "^2.4.1",
     "typescript": "^4.4.4"
   },
