@@ -8,12 +8,12 @@
     "strip-markdown": "^4.2.0"
   },
   "devDependencies": {
-    "@socialgouv/eslint-config-recommended": "^1.96.0",
+    "@socialgouv/eslint-config-recommended": "^1.99.1",
     "@types/node": "^16.11.9",
     "@types/node-fetch": "^2",
     "eslint": "^7.32.0",
     "prettier": "^2.4.1",
-    "typescript": "^4.4.4"
+    "typescript": "^4.5.2"
   },
   "files": [
     "data",
