@@ -1,5 +1,5 @@
 import fetch from "node-fetch";
-import remark from "remark";
+import { remark } from "remark";
 import strip from "strip-markdown";
 
 const mdStriper = remark().use(strip);
@@ -29,6 +29,7 @@ function getGenericAnswer(answers) {
   }
   const genericTextAnswer = mdStriper
     .processSync(genericAnswer.markdown)
+    // @ts-ignore
     .contents.toString()
     .replace(/(\s)\s+/, "$1")
     .trim();
@@ -119,4 +120,4 @@ async function fetchContributions() {
   );
 }
 
-module.exports = fetchContributions;
+export default fetchContributions;

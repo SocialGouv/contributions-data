@@ -1,6 +1,7 @@
 {
   "name": "@socialgouv/contributions-data",
   "version": "3.35.0",
+  "type": "module",
   "dependencies": {
     "esm": "^3.2.25",
     "node-fetch": "^2",
@@ -26,7 +27,7 @@
   },
   "scripts": {
     "check:types": "tsc",
-    "fetch": "node -r esm fetch",
+    "fetch": "node fetch",
     "lint": "eslint src/**/*.js",
     "test": "exit 0"
   },

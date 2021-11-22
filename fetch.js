@@ -1,16 +1,15 @@
-const fs = require("fs");
-const fetchContributions = require("./src/fetchContributions");
+import fs from "fs";
 
-if (require.main === module) {
-  fetchContributions()
-    .then((data) => {
-      const outPath = "./data/contributions.json";
-      fs.writeFileSync(outPath, JSON.stringify(data, null, 2));
-      console.log(`✔ wrote ${data.length} contributions to ${outPath}`);
-      console.log();
-    })
-    .catch((e) => {
-      console.error(e);
-      throw e;
-    });
-}
+import fetchContributions from "./src/fetchContributions.js";
+
+fetchContributions()
+  .then((data) => {
+    const outPath = "./data/contributions.json";
+    fs.writeFileSync(outPath, JSON.stringify(data, null, 2));
+    console.log(`✔ wrote ${data.length} contributions to ${outPath}`);
+    console.log();
+  })
+  .catch((e) => {
+    console.error(e);
+    throw e;
+  });
