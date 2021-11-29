@@ -10,7 +10,7 @@
   },
   "devDependencies": {
     "@socialgouv/eslint-config-recommended": "^1.99.1",
-    "@types/node": "^16.11.9",
+    "@types/node": "^16.11.10",
     "@types/node-fetch": "^2",
     "eslint": "^8.3.0",
     "prettier": "^2.4.1",
