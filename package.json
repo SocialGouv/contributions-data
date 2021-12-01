@@ -9,11 +9,11 @@
     "strip-markdown": "^5.0.0"
   },
   "devDependencies": {
-    "@socialgouv/eslint-config-recommended": "^1.99.1",
+    "@socialgouv/eslint-config-recommended": "^1.100.0",
     "@types/node": "^16.11.10",
     "@types/node-fetch": "^2",
     "eslint": "^8.3.0",
-    "prettier": "^2.4.1",
+    "prettier": "^2.5.0",
     "typescript": "^4.5.2"
   },
   "files": [
