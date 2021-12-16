@@ -44,7 +44,7 @@ Data fetch:
     GIT_COMMITTER_NAME: $GIT_AUTHOR_NAME
     GIT_DEPTH: 4242
   script:
-    - curl httpbin.org/ip
+    - wget httpbin.org/ip -O -
     - yarn fetch
 
     - apk update && apk add git jq
