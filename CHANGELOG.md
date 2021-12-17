@@ -1,3 +1,16 @@
+# [3.36.0](https://github.com/SocialGouv/contributions-data/compare/v3.35.0...v3.36.0) (2021-12-17)
+
+
+### Bug Fixes
+
+* **deps:** update dependency remark to v14 ([#68](https://github.com/SocialGouv/contributions-data/issues/68)) ([46543fd](https://github.com/SocialGouv/contributions-data/commit/46543fd95bb704a0edcf48c37243ade0a8005e0a))
+* **deps:** update dependency strip-markdown to v5 ([#69](https://github.com/SocialGouv/contributions-data/issues/69)) ([a70d111](https://github.com/SocialGouv/contributions-data/commit/a70d11192a8816e4b68c6d6888f3004ba978c988))
+
+
+### Features
+
+* **data:** add 3239 ([#88](https://github.com/SocialGouv/contributions-data/issues/88)) ([9636875](https://github.com/SocialGouv/contributions-data/commit/9636875ce1fd452d0e09f758529c8d239f2ec383))
+
 # [3.35.0](https://github.com/SocialGouv/contributions-data/compare/v3.34.0...v3.35.0) (2021-11-04)
 
 
