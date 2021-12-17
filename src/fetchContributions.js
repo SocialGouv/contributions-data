@@ -27,13 +27,19 @@ function getGenericAnswer(answers) {
   if (!genericAnswer) {
     return;
   }
-  const genericTextAnswer = mdStriper
-    .processSync(genericAnswer.markdown)
-    // @ts-ignore
-    .contents.toString()
-    .replace(/(\s)\s+/, "$1")
-    .trim();
-
+  let genericTextAnswer;
+  try {
+    genericTextAnswer = mdStriper
+      .processSync(genericAnswer.markdown)
+      // @ts-ignore
+      .value.toString()
+      .replace(/(\s)\s+/, "$1")
+      .trim();
+  } catch (e) {
+    console.error(genericAnswer);
+    console.error(mdStriper.processSync(genericAnswer.markdown));
+    throw e;
+  }
   return {
     description:
       genericTextAnswer.slice(0, genericTextAnswer.indexOf(" ", 150)) + "…",
