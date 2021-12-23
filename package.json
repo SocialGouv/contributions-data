@@ -1,6 +1,6 @@
 {
   "name": "@socialgouv/contributions-data",
-  "version": "3.41.0",
+  "version": "3.42.0",
   "type": "module",
   "dependencies": {
     "esm": "^3.2.25",
