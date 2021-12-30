@@ -1,3 +1,11 @@
+# [3.44.0](https://github.com/SocialGouv/contributions-data/compare/v3.43.0...v3.44.0) (2021-12-30)
+
+
+### Features
+
+* avoid throwing error by filtering ([#90](https://github.com/SocialGouv/contributions-data/issues/90)) ([b893193](https://github.com/SocialGouv/contributions-data/commit/b893193dd93d41db8c7259d3fd2f5982bdb4dddd))
+* **data:** 20211230_1838 update ([f36dee3](https://github.com/SocialGouv/contributions-data/commit/f36dee3d906c15fece79eec9b7f61709cb7bd250))
+
 # [3.43.0](https://github.com/SocialGouv/contributions-data/compare/v3.42.0...v3.43.0) (2021-12-24)
 
 
