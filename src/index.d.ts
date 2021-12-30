@@ -1,6 +1,8 @@
 
 export function createRefFn(agreements: IndexedAgreement[], idcc: string): (ref: Reference) => Reference
 
+export function hasAgreement(agreements: IndexedAgreement[], idcc: string): boolean
+
 export function sortByFn<T, K extends keyof T>(key: K): (a: T, b: T) => number
 
 export as namespace ContributionsData

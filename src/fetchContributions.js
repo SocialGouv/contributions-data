@@ -82,6 +82,13 @@ function createGetRefUrl(agreements, idcc) {
     return reference;
   };
 }
+/** @type {ContributionsData.hasAgreement} */
+function hasAgreement(agreements, idcc) {
+  const agreement = agreements.find(
+    (convention) => comparableIdcc(convention.num) === comparableIdcc(idcc)
+  );
+  return agreement ? true : false;
+}
 
 /**
  *
@@ -107,6 +114,7 @@ async function fetchContributions() {
         answers: {
           conventions: answers
             .filter((answer) => answer.agreement !== null)
+            .filter((answer) => hasAgreement(agreements, answer.agreement.idcc))
             .map((answer) => ({
               id: answer.id,
               idcc: answer.agreement.idcc,
