@@ -3,8 +3,6 @@ import { remark } from "remark";
 import strip from "strip-markdown";
 
 const mdStriper = remark().use(strip);
-const CDTN_API_URL =
-  process.env.CDTN_API_URL || "https://cdtn-api.fabrique.social.gouv.fr";
 const API_URL =
   process.env.API_URL ||
   "https://contributions-api.codedutravail.fabrique.social.gouv.fr";
@@ -96,7 +94,9 @@ async function fetchContributions() {
     fetch(
       `${API_URL}/questions?select=id,value,index,answers:public_answers(id,markdown:value,references:answers_references(title:value,url,dila_id,dila_cid,dila_container_id,category),agreement(name,idcc,parent_id))&order=index`
     ).then((r) => r.json()),
-    fetch(`${CDTN_API_URL}/agreements`).then((r) => r.json()),
+    fetch(
+      `https://raw.githubusercontent.com/SocialGouv/kali-data/master/data/index.json`
+    ).then((r) => r.json()),
   ]);
 
   return /**@type {ContributionsData.Question[]} */ (
