@@ -1,3 +1,15 @@
+# [3.54.0](https://github.com/SocialGouv/contributions-data/compare/v3.53.0...v3.54.0) (2022-02-04)
+
+
+### Bug Fixes
+
+* **deps:** update dependency node-fetch to v2.6.7 [security] ([#91](https://github.com/SocialGouv/contributions-data/issues/91)) ([1e32f56](https://github.com/SocialGouv/contributions-data/commit/1e32f56b929d73feb448c2587c50ad62f318313e))
+
+
+### Features
+
+* **data:** 20220204_2304 update ([73e0342](https://github.com/SocialGouv/contributions-data/commit/73e03428a6fa1c13bd70e2835add850639a5da04))
+
 # [3.53.0](https://github.com/SocialGouv/contributions-data/compare/v3.52.0...v3.53.0) (2022-01-24)
 
 
