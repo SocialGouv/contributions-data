@@ -1,3 +1,10 @@
+# [3.58.0](https://github.com/SocialGouv/contributions-data/compare/v3.57.0...v3.58.0) (2022-02-10)
+
+
+### Features
+
+* **data:** 20220210_2304 update ([97a01f9](https://github.com/SocialGouv/contributions-data/commit/97a01f99640062422b66ef63435fdf42986819d1))
+
 # [3.57.0](https://github.com/SocialGouv/contributions-data/compare/v3.56.0...v3.57.0) (2022-02-09)
 
 
