@@ -66,7 +66,7 @@ Data fetch:
       NOW=$(date +"%Y%m%d_%H%M")
       git add data
       git commit -m "feat(data): $NOW update"
-      git pull --rebase
+      git pull --rebase origin master
       git push --no-verify origin HEAD:${CI_COMMIT_REF_NAME}
 
     - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
@@ -89,7 +89,7 @@ Force Publish:
   before_script:
     - apk update && apk add git jq
     - git remote set-url origin https://${GH_TOKEN}@github.com/${CI_PROJECT_PATH}.git
-    - git pull --rebase
+    - git pull --rebase origin master
     - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
   script:
     - yarn config set cache-folder $CI_PROJECT_DIR/.yarn
