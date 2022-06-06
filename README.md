@@ -1,3 +1,7 @@
+# /!\ Projet archivé /!\
+
+L'outil de contribution a été intégré dans le dépôt de l'outil d'administration CDTN (https://github.com/SocialGouv/cdtn-admin).
+
 # contributions-data
 
 Data package for CDTN contributions data
